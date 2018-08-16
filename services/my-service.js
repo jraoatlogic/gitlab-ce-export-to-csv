@@ -34,21 +34,21 @@ service('MyService', ['$http', function($http) {
 
      this.getAllIssuesWithMilestone = function(token, id, page = 1, url, milestone){
         url = url || urlGlobal;
-        return $http.get(url + "/api/v4/groups" + "/" + id + "/issues?milestone="+milestone+"&scope=all&per_page=100&page=" + page, { headers: {
+        return $http.get(url + "/api/v4/projects" + "/" + milestone + "/issues?scope=all&per_page=100&page=" + page, { headers: {
             'PRIVATE-TOKEN': token
           }});
      };
 
      this.getClosedIssuesWithMilestone = function(token, id, page = 1, url, milestone){
         url = url || urlGlobal;
-        return $http.get(url + "/api/v4/groups" + "/" + id + "/issues?milestone="+milestone+"&scope=all&per_page=100&state=closed&page=" + page, { headers: {
+        return $http.get(url + "/api/v4/projects" + "/" + milestone + "/issues?scope=all&per_page=100&state=closed&page=" + page, { headers: {
             'PRIVATE-TOKEN': token
           }});
      };
 
      this.getOpenedIssuesWithMilestone = function(token, id, page = 1, url, milestone){
         url = url || urlGlobal;
-        return $http.get(url + "/api/v4/groups" + "/" + id + "/issues?milestone="+milestone+"&scope=all&per_page=100&state=opened&page=" + page, { headers: {
+        return $http.get(url + "/api/v4/projects" + "/" + milestone + "/issues?scope=all&per_page=100&state=opened&page=" + page, { headers: {
             'PRIVATE-TOKEN': token
           }});
      };
